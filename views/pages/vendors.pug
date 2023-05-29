@@ -1,0 +1,15 @@
+html 
+    head 
+        title vendors 
+    body 
+        div#main 
+            include ../partials/header
+            h1 Vendors
+            
+            -if(vendor.length > 0){
+                ul 
+                    -for(let i = 0; i < vendor.length; i++){
+                        li 
+                            a(href = "/vendors/"+i) #{vendor[i].name}
+                    -}
+            -}

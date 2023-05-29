@@ -1,0 +1,22 @@
+html 
+    head 
+        title vendors 
+        
+        
+    body 
+        div#main 
+            include ../partials/header
+            h1 Enter the product information
+            p Name: 
+            input(type="textbox" id="name")
+            p Delivery Fee: 
+            input(type="number" id="del_fee")
+            p Minimum Order: 
+            input(type="number" id="min_order")
+            |
+            button(type="button" id="submit" onclick = "addVendor()") Submit
+
+        script(src="../../add.js")
+        
+            
+

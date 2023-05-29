@@ -1,0 +1,52 @@
+select {
+    position: float;
+    font-size: x-large;
+    margin: 20px;
+}
+
+.column {
+    float: left;
+}
+
+.left {
+    width: 25%;
+}
+
+.middle {
+    width: 20%;
+}
+#info{
+
+    position: relative; 
+    font-size: large;
+}
+
+.child {
+    width: 30%;
+    float: left;
+    padding: 20px;
+    border: 2px solid red;
+} 
+
+body{
+  background-color: rgba(255, 205, 81, 0.6);
+  font-family: "Proxima Nova";
+}
+
+#title{
+  color: #002e2b;
+}
+#head{
+  color: #00607f;
+}
+#left{
+  margin: 3%;
+  background-color: rgba(255, 205, 81, 1);
+}
+#middle{
+  margin: 4px;
+
+}
+#orderForm{
+  position: absolute;
+}

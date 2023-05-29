@@ -1,0 +1,72 @@
+home 
+    head 
+        title=  vendor.name
+        style 
+            include ./style.css
+            
+
+    body 
+
+        include ../partials/header
+        
+        -let categories = Object.keys(vendor.supplies);
+        //-vendor information 
+        div(class = "child" id ="info")
+            form
+                p Name
+                input(type = "text" id = "vname" name = "vname" value = vendor.name)
+                p Delivery Fee
+                input(type = "number" id = "del_fee" name = "del_fee" value = vendor.delivery_fee)
+                p Minimum Order
+                input(type = "number" id = "min_order" name = "min_order" value = vendor.min_order)
+        //-adding an item to a category in the vendor
+        div(class = "child" id = "left")
+            h2 Add an item to a category
+            select(id = "categorySelect" )
+                -for(let x in categories)
+                    option(value = x) #{categories[x]}
+
+            form 
+                p Name 
+                input(type = "text" id = "cname" name = "cname")
+                p Description 
+                input(type = "textbox" id = "desc" name = "desc" value ="ipsum lorem la la la ")
+                p Price 
+                input(type = "number" id = "price" name = "price")
+                p Stock 
+                input(type = "number" id = "stock" name = "stock")
+
+        //-displaying vendor info - categories and supplies
+        div(class = "child" id = "middle")
+            
+
+            -for(let x in categories){
+                
+                h4 #{categories[x]}
+                -let supplies = vendor.supplies[categories[x]];
+                
+                -for(let y in supplies){
+
+                    p #{supplies[y].name} $ #{supplies[y].price}
+                    |
+                    p Id:  #{y}
+                    |
+                    p Stock: #{supplies[y].stock} 
+                    |
+                    p #{supplies[y].description}
+                    |
+                    br
+
+                -}
+                |
+                br
+            -}
+
+
+        div(id = "right")
+            //-save button
+            
+            button(id = "save" onclick = 'saveChanges("'+idcount+'", "'+id+'" )') save
+
+        script(src="../../save.js")
+
